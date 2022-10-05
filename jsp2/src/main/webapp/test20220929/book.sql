@@ -5,5 +5,5 @@ create table book (
    content varchar2(4000),
    regdate date
 )
-
 select * from book
+

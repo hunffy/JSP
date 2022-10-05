@@ -21,10 +21,10 @@
 			("jdbc:oracle:thin:@localhost:1521:xe","kic","1234");
 	out.println("오라클 접속 성공");
 
-	//Statement : sql 문장을 db(데이터베이스)에 명령문 전달 객체
+	//Statement : sql 문장을 db(데이터베이스)에 명령문 전달 객체 , 명령문(select studno form student)을 실행하게 해주는 역할
 	Statement stmt = conn.createStatement();
 	
-	//ResulSet : select 문장의 결과 데이터를 저장하는 객체
+	//ResultSet : select 문장의 결과 데이터를 저장하는 객체
 	ResultSet rs = stmt.executeQuery("select * from emp");
 	
 %>
@@ -34,7 +34,7 @@
 		rs.getString(컬럼명|컬럼순서) : 컬럼값을 문자열로 리턴
  --%>
  
-<% while(rs.next()) {%>
+<% while(rs.next()) {%> <%--rs.next() 값이 있다면 true니까 while문 진행 --%>
 <tr><td><%=rs.getString("empno") %></td>
 	<td><%=rs.getString("ename") %></td>
 	<td><%=rs.getString("job") %></td>
